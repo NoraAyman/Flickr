@@ -56,9 +56,10 @@ public class ImageDetails {
     public String getServer(){
         return server;
     }
+
     public Uri formURI(){
-        imagePath= Uri.parse("https://farm{" + getFarm()+"-"+ getId() +"}.staticflickr.com/{" + getServer() + "-"
-                + getSecret() + "}/{" + getId() +"}_{o-" + getSecret() +"}_o.(jpg|gif|png)");
+        imagePath= Uri.parse("https://farm" + getFarm() +".staticflickr.com/" + getServer() +
+                "/" + getId() +"_o-" + getSecret() +"_o.(jpg|gif|png)");
         return imagePath;
     }
 

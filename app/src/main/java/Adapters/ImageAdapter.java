@@ -2,6 +2,7 @@ package Adapters;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +41,8 @@ public class ImageAdapter extends ArrayAdapter<ImageDetails> {
             view= inflater.inflate(R.layout.list_items, null);
         }
         ImageView imageView= (ImageView)view.findViewById(R.id.image);
-        Picasso.with(viewGroup.getContext()).load(image.getImagePath()).into(imageView);
-
+      //  Uri x= image.formURI();
+        Picasso.with(viewGroup.getContext()).load(image.formURI()).into(imageView);
         return view;
     }
 }

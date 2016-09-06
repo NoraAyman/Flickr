@@ -59,10 +59,6 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
             @Override
             public boolean onQueryTextSubmit(String s) {
                 setQuery(s);
-//                ImageList y= new ImageList();
-//                y.setQuery(query);
-//                Intent x= new Intent(getApplicationContext(), ImageList.class);
-//                startActivity(x);
                 loader_manager.initLoader(0, null, imageListener);
                 return false;
             }
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
             @Override
             public boolean onQueryTextChange(String s) {
                 setQuery(s);
-                //loader_manager.restartLoader(0, null, imageListener);
+                loader_manager.restartLoader(0, null, imageListener);
 
                 return false;
             }
