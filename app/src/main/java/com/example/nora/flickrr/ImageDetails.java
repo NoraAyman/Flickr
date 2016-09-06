@@ -62,6 +62,11 @@ public class ImageDetails {
                 "/" + getId() +"_" + getSecret() +"_t.jpg");
         return imagePath;
     }
+    public Uri formURIImageView(){
+
+        return Uri.parse("https://farm" + getFarm() +".staticflickr.com/" + getServer() +
+                "/" + getId() +"_" + getSecret() +"_z.jpg");
+    }
 
     public long getId() {
         return id;
