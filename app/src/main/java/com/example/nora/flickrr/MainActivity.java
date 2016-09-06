@@ -5,6 +5,7 @@ import android.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
     SearchView search_view;
     ImageAdapter image_adapter;
     private LoaderManager loader_manager;
-    ListView list;
+    GridView list;
     static String query= "";
 
     private LoaderManager.LoaderCallbacks<List<ImageDetails>> imageListener= new LoaderManager.LoaderCallbacks<List<ImageDetails>>(){
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         search_view= (SearchView) findViewById(R.id.search_view);
-        list = (ListView) findViewById(R.id.images_list);
+        list = (GridView) findViewById(R.id.images_list);
         image_adapter = new ImageAdapter(this, new ArrayList<ImageDetails>());
         list.setAdapter(image_adapter);
         loader_manager = getLoaderManager();
