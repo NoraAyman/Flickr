@@ -12,11 +12,19 @@ import org.json.JSONObject;
 
 public class ImageDetails {
     private Uri imagePath;
-    private String imageTitle, imageBelongsTo;
+    private String imageTitle, owner, secret, server;
     long id;
+    int farm;
     public ImageDetails(Uri imagePath, long id){
         this.imagePath= imagePath;
         this.id= id;
+    }
+    public ImageDetails(long id, String owner, String secret, String server, int farm){
+        this.id= id;
+        this.owner= owner;
+        this.secret= secret;
+        this.server= server;
+        this.farm= farm;
     }
     public ImageDetails(Uri imagePath, String imageTitle, long id){
         this.imagePath= imagePath;
@@ -24,21 +32,7 @@ public class ImageDetails {
         this.id= id;
 
     }
-    public ImageDetails(Uri imagePath, String imageTitle, String getImageBelongsTo, long id){
-        this.imagePath= imagePath;
-        this.imageTitle= imageTitle;
-        this.imageBelongsTo= imageBelongsTo;
-        this.id= id;
 
-    }
-    public ImageDetails(JSONObject movieObject) throws JSONException{
-        id = movieObject.getInt("id");
-        //String image_path = movieObject.getString("title");
-        //imagePath= Uri.parse(image_path);
-        imageTitle = movieObject.getString("title");
-        Log.e("cgvhjkknjbvcvbn", imageTitle);
-
-    }
 
     public Uri getImagePath(){
         return imagePath;
@@ -48,8 +42,24 @@ public class ImageDetails {
         return imageTitle;
     }
 
-    public String getImageBelongsTo() {
-        return imageBelongsTo;
+    public int getFarm() {
+        return farm;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+    public String getServer(){
+        return server;
+    }
+    public Uri formURI(){
+        imagePath= Uri.parse("https://farm{" + getFarm()+"-"+ getId() +"}.staticflickr.com/{" + getServer() + "-"
+                + getSecret() + "}/{" + getId() +"}_{o-" + getSecret() +"}_o.(jpg|gif|png)");
+        return imagePath;
     }
 
     public long getId() {

@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
             @Override
             public boolean onQueryTextChange(String s) {
                 setQuery(s);
-                loader_manager.restartLoader(0, null, imageListener);
+                //loader_manager.restartLoader(0, null, imageListener);
 
                 return false;
             }

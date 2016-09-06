@@ -44,10 +44,17 @@ public final class QueryUtils {
 
                 long id = currentImage.getLong("id");
                 String title = currentImage.getString("title");
+                String owner = currentImage.getString("owner");
+                String secret = currentImage.getString("secret");
+                String server = currentImage.getString("server");
+                int farm= currentImage.getInt("farm");
+
+
+
                 Uri x= Uri.parse(title);
                 Log.e("fbgaevdgng", title);
 
-                ImageDetails obj = new ImageDetails(x, id);
+                ImageDetails obj = new ImageDetails(id, owner, secret, server, farm);
                 images.add(obj);
             }
 
