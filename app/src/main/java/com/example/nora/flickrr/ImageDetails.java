@@ -59,7 +59,7 @@ public class ImageDetails {
 
     public Uri formURI(){
         imagePath= Uri.parse("https://farm" + getFarm() +".staticflickr.com/" + getServer() +
-                "/" + getId() +"_o-" + getSecret() +"_o.(jpg|gif|png)");
+                "/" + getId() +"_" + getSecret() +"_t.jpg");
         return imagePath;
     }
 

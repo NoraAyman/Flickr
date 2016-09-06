@@ -41,7 +41,7 @@ public class ImageAdapter extends ArrayAdapter<ImageDetails> {
             view= inflater.inflate(R.layout.list_items, null);
         }
         ImageView imageView= (ImageView)view.findViewById(R.id.image);
-      //  Uri x= image.formURI();
+        //Uri x= image.formURI();
         Picasso.with(viewGroup.getContext()).load(image.formURI()).into(imageView);
         return view;
     }
