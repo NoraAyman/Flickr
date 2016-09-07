@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.nora.flickrr.MainActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+
+    >
 
     <GridView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,6 +25,27 @@
         >
     </GridView>
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/viewImage"
+        android:background="@color/colorPrimaryDark"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to owner"
+        android:visibility="gone"
+        android:id="@+id/getOwner"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        style="@android:style/Widget.Button.Toggle"
+        android:elevation="0dp" />
+
     <android.support.v7.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
@@ -32,23 +54,7 @@
         android:layout_alignParentLeft="true"
         android:queryHint="Search here..."
         >
-
     </android.support.v7.widget.SearchView>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:id="@+id/viewImage"
-        android:background="@android:color/black"
-        />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/saveImage"
-        android:visibility="gone"
-        android:foregroundGravity="bottom|right"
-        />
     <ProgressBar
         android:id="@+id/loading_indicator"
         style="@style/Widget.AppCompat.ProgressBar"

@@ -15,6 +15,10 @@ public class ImageDetails {
     private String imageTitle, owner, secret, server;
     long id;
     int farm;
+    public ImageDetails(long id, String owner){
+        this.id= id;
+        this.owner= owner;
+    }
     public ImageDetails(Uri imagePath, long id){
         this.imagePath= imagePath;
         this.id= id;
@@ -26,13 +30,8 @@ public class ImageDetails {
         this.server= server;
         this.farm= farm;
     }
-    public ImageDetails(Uri imagePath, String imageTitle, long id){
-        this.imagePath= imagePath;
-        this.imageTitle= imageTitle;
-        this.id= id;
-
+    public ImageDetails(){
     }
-
 
     public Uri getImagePath(){
         return imagePath;

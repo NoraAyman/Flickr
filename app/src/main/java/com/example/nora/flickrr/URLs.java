@@ -9,4 +9,11 @@ public class URLs {
     public static final String SEARCH_URL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&" + API_KEY;
     public static final String SEARCH_PHOTOS_QUERY = SEARCH_URL + "text=";
     public static final String FORMAT = "&format=json&nojsoncallback=1";
+    public static final String PHOTO_OWNER = "https://www.flickr.com/photos/";
+    public static final String OWNER_PHOTOS = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&" + API_KEY;
+    public static final String USER_ID ="user_id=";
+
+
+
+
 }

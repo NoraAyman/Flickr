@@ -64,7 +64,46 @@ public final class QueryUtils {
 
         return images;
     }
+    public static List<OwnerDetails> extractOwnerFeatureFromJson(String stringJSON) {
 
+        if (TextUtils.isEmpty(stringJSON)) {
+            return null;
+        }
+
+        List<OwnerDetails> owners = new ArrayList<>();
+        try {
+
+            JSONObject object = new JSONObject(stringJSON);
+            JSONObject y= object.getJSONObject("photos");
+            JSONArray imagesArray = y.getJSONArray("photo");
+
+            for (int counter = 0; counter < imagesArray.length(); counter++) {
+
+                JSONObject currentImage = imagesArray.getJSONObject(counter);
+
+
+                long id = currentImage.getLong("id");
+                String title = currentImage.getString("title");
+                String owner = currentImage.getString("owner");
+                String server= currentImage.getString("server");
+                String secret= currentImage.getString("secret");
+                int farm= currentImage.getInt("farm");
+
+
+
+                Uri x = Uri.parse(title);
+                Log.e("fbgaevdgng", title);
+
+                OwnerDetails obj = new OwnerDetails(id, owner, server, secret, farm);
+                owners.add(obj);
+            }
+
+        } catch (JSONException e) {
+            Log.e("QueryUtils", "Problem parsing the images JSON results", e);
+        }
+
+        return owners;
+    }
     private static URL createUrl(String urlString) {
         URL url = null;
         try {
@@ -136,5 +175,19 @@ public final class QueryUtils {
         List<ImageDetails> images = extractFeatureFromJson(jsonResponse);
 
         return images;
+    }
+    public static List<OwnerDetails> fetchOwnerData(String requestUrl) {
+
+        URL url = createUrl(requestUrl);
+        String jsonResponse = null;
+        try {
+            jsonResponse = makeHttpRequest(url);
+        } catch (IOException e) {
+            Log.e("", "Problem making the HTTP request.", e);
+        }
+
+        List<OwnerDetails> owner = extractOwnerFeatureFromJson(jsonResponse);
+
+        return owner;
     }
 }
