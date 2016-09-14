@@ -8,9 +8,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +35,8 @@ public class OpenOwner extends AppCompatActivity {
     static String query= "";
     boolean state= false;
     ImageView image, userImage;
-    ImageDetails currentImage;
+    OwnerDetails currentImage;
+    ImageAdapter image_adapter;
     View progressBar;
     TextView userName;
     static String currentImageOwner="";
@@ -80,6 +84,24 @@ public class OpenOwner extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.viewImage);
         loader_manager = getLoaderManager();
         loader_manager.initLoader(0, null, ownerListner);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                currentImage= owner_adapter.getItem(i);
+
+                if(image.getVisibility() == View.GONE){
+                    image.setVisibility(View.VISIBLE);
+                    Picasso.with(getApplicationContext()).load(currentImage.formURIImageView()).into(image);
+                }
+                else{
+                    image.setVisibility(View.GONE);
+
+
+                }
+            }
+        });
+
+
 
 
 

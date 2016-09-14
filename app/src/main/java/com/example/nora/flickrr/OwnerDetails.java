@@ -43,5 +43,9 @@ public class OwnerDetails {
                 "/" + getID() +"_" + getSecret() +"_t.jpg");
     }
 
+    public Uri formURIImageView(){
 
+        return Uri.parse("https://farm" + getFarm() +".staticflickr.com/" + getServer() +
+                "/" + getID() +"_" + getSecret() +"_z.jpg");
+    }
 }

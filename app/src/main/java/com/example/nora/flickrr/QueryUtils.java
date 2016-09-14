@@ -92,7 +92,7 @@ public final class QueryUtils {
 
 
                 Uri x = Uri.parse(title);
-                Log.e("fbgaevdgng", title);
+               // Log.e("fbgaevdgng", title);
 
                 OwnerDetails obj = new OwnerDetails(id, owner, server, secret, farm);
                 owners.add(obj);

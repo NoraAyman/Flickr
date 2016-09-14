@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity/* implements LoaderManager.L
                     image.setVisibility(View.GONE);
                     owner.setVisibility(View.GONE);
 
-
                 }
             }
         });
