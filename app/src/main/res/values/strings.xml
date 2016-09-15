@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Flickrr</string>
+    <string name="facebook_app_id">1193930080678799</string>
+    <string name="server_client_id"> 934886544588-2n81kc9f47mft98o2lnqdju8nfgndfng.apps.googleusercontent.com </string>
+
 </resources>

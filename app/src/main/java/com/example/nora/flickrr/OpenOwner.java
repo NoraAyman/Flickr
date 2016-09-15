@@ -33,12 +33,9 @@ public class OpenOwner extends AppCompatActivity {
     private LoaderManager loader_manager;
     GridView list;
     static String query= "";
-    boolean state= false;
-    ImageView image, userImage;
+    ImageView image;
     OwnerDetails currentImage;
-    ImageAdapter image_adapter;
     View progressBar;
-    TextView userName;
     static String currentImageOwner="";
     public void setCurrentImage(String currentImageOwner){
         this.currentImageOwner= currentImageOwner;
